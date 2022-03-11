@@ -30,7 +30,7 @@ DeltaX=initialization(SearchAgents_no,dim,ub,lb);
 pop = X;
 
 % 2. Search History Analysis
-if dim==2 % 2 boyut icin yapilacak...
+if dim==2 % only 2 dimensions
 	refresh = 100;
 	figure(21)
 
@@ -198,7 +198,7 @@ while fitcount<dim*10000 %% && abs(gbestval-varargin{:}*100) > 1e-8
                 end
                 X(i,j)=X(i,j)+DeltaX(i,j);
 				
-				%mutasyon operatoru...
+				% mutation operator...
 				if rand()<0.005
 					nmu=ceil(0.1*dim);
 					j=randsample(dim,nmu);
@@ -222,11 +222,11 @@ while fitcount<dim*10000 %% && abs(gbestval-varargin{:}*100) > 1e-8
 				t=[t;abs(gbestval-varargin{:}*100)];              
         end
 		gbest_position(iter,:)=gbest;
-		Distance = abs(X(1,1)-X(:,1)); % Analiz icin eklendi...
+		Distance = abs(X(1,1)-X(:,1)); 
 		DistanceSum(iter) = sum(Distance)/(SearchAgents_no-1);
 		iter=iter+1;
 		% 2. Search History Analysis
-		if dim==2 && (rem(fitcount/SearchAgents_no,refresh) == 0)% 2 boyut icin yapilacak...
+		if dim==2 && (rem(fitcount/SearchAgents_no,refresh) == 0)
 			figure(21)
 			plot(X(:,1),X(:,2),'ks','MarkerSize',8,'color',rand(1,3));
 		%	plot(gbest(1),gbest(2),'k*','MarkerSize',8);
