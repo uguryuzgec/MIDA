@@ -2,13 +2,13 @@ clear all
 close all
 clc
 % mex cec14_func.cpp -DWINDOWS
-% 17-22 hibrid cizilmiyor ve 29-30...
+% 17-22 hibrid 
 % 1-3 unimodal func.
 % 4-16 multimodal func.
 % 23-28 composition func.
-func_num=25; % fonk sayisi
-runs=1; % tekrar sayisi
-D=2; % boyut sayisi
+func_num=25; 
+runs=1;
+D=2; % dimension
 Xmin=-100;
 Xmax=100;
 pop_size=10*D;
@@ -34,7 +34,6 @@ fprintf('Func no: %d -> %d. run : best error = %1.2e\n',func_num,runs,solution(f
 plot_function
 drawnow
 % 1. Convergence Analysis
-% istenilen fonksiyonun (convergence curve) yakinsama egrisi...
 fonk_numara = func_num;
 FESindex = [0.01, 0.02, 0.03, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]*FES;
 
@@ -75,7 +74,7 @@ ylabel('Error Value');
 str = sprintf('Convergence Analysis of FN%d',fonk_numara);
 title(str);
 
-% Optimization with Improved DA 
+% Optimization with MIDA 
 
 [i_gbest,i_gbestval,i_FES,i_t]= ImpDA_func(fhd,D,pop_size,iter_max,Xmin,Xmax,X_suru,func_num);
 
@@ -87,7 +86,6 @@ fprintf('Optimization with ImpDA\n ');
 fprintf('Func no: %d -> %d. run : best error = %1.2e\n',func_num,runs,solution(func_num,1).cost);
 
 % 1. Convergence Analysis
-% istenilen fonksiyonun (convergence curve) yakinsama egrisi...
 figure (2)
 hold on
 semilogy(FESindex,solution(fonk_numara,1).t,'-sr');
