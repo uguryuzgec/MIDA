@@ -2,7 +2,7 @@ clear all
 close all
 clc
 % mex cec14_func.cpp -DWINDOWS
-% 17-22 hibrid 
+% 17-22 hybrid func. 
 % 1-3 unimodal func.
 % 4-16 multimodal func.
 % 23-28 composition func.
