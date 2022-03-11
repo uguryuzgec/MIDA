@@ -1,9 +1,3 @@
-% % Xmin=-100;
-% % Xmax=100;
-% % D=2;
-% 17-22 hibrid cizilmiyor ve 29-30...
-% % func_num=13;
-% % fhd=str2func('cec14_func');
 VRmin=repmat(Xmin,1,D);
 VRmax=repmat(Xmax,1,D);
 % initialize
